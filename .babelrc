@@ -1,0 +1,33 @@
+{
+  "presets": [
+    "env",
+    [
+      "es2015",
+      {
+        "modules": false
+      }
+    ],
+    "stage-0",
+    "react"
+  ],
+  "plugins": [
+    "transform-decorators-legacy",
+    "transform-class-properties",
+    "transform-object-rest-spread",
+    "transform-runtime",
+    "syntax-decorators",
+    "add-react-displayname"
+  ],
+  "env": {
+    "development": {
+      "plugins": [
+        "react-hot-loader/babel"
+      ]
+    },
+    "test": {
+      "sourceMaps": "inline",
+      "plugins": ["transform-es2015-modules-commonjs"]
+
+    }
+  }
+}

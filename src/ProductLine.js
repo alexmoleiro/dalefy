@@ -1,15 +1,14 @@
-import imagen from './assets/bambas.png';
 import React from 'react';
+import imagen from './assets/bambas.png';
 
 const ProductLine = (props) => {
-
     const {product} = props;
 
     const open = (name) => {
         alert(name);
     }
 
-   return (
+    return (
         <div className="row">
             <div className="col-3 float-left">
                 <img style={{width: '100%'}} src={imagen}/>
