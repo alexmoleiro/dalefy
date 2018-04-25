@@ -17,26 +17,30 @@ class App extends Component {
 
     pintar_linea() {
         return (
-            <div className="container">
+            <div className="row">
                 <div className="col-3 float-left">
                     <img style={{width: '100%'}} src={imagen}/>
                 </div>
                 <div className="col-8 float-left">
-                    <div onClick={this.openAlert.bind()} className="alert alert-success">Click to test how
+                    <div>No hay mucho texto
+                    </div>
+                    <button type="button" onClick={this.openAlert.bind()} className="btn btn-success">Click to test how
                         it
                         works
-                    </div>
+                    </button>
                 </div>
-
             </div>);
     }
 
     render() {
         return (
             <Provider store={store}>
+
                 <div className="App">
-                    {this.pintar_linea()}
-                    {this.pintar_linea()}
+                    <div className="container">
+                        {this.pintar_linea()}
+                        {this.pintar_linea()}
+                    </div>
                 </div>
             </Provider>
         );
