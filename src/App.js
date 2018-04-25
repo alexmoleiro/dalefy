@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import './App.css';
 import {Provider} from 'react-redux';
 import {createStore} from 'redux';
-import ProductLine from 'ProductLine';
+import ProductLine from './ProductLine';
 
 const store = createStore(
     (state, action) => state,
@@ -11,8 +11,8 @@ const store = createStore(
 
 class App extends Component {
 
-    openAlert() {
-        alert("Hola payo");
+    openAlert(name) {
+        alert(name);
     }
 
     render() {
@@ -20,12 +20,14 @@ class App extends Component {
             <Provider store={store}>
                 <div className="App">
                     <div className="container">
-                        <ProductLine open={this.openAlert}/>
+                        <ProductLine open={this.openAlert.bind(this)} marca="Adidas"/>
+                        <ProductLine open={this.openAlert.bind(this)} marca="Nike"/>
                     </div>
                 </div>
             </Provider>
         );
     }
 }
+
 
 export default App;
