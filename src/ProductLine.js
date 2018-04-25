@@ -3,7 +3,11 @@ import React from 'react';
 
 const ProductLine = (props) => {
 
-    const {open,marca} = props;
+    const {product} = props;
+
+    const open = (name) => {
+        alert(name);
+    }
 
    return (
         <div className="row">
@@ -13,7 +17,7 @@ const ProductLine = (props) => {
             <div className="col-8 float-left">
                 <div>No hay mucho texto
                 </div>
-                <button type="button" onClick={()=>open(marca)} className="btn btn-success">Click to test how
+                <button type="button" onClick={()=>open(product.marca)} className="btn btn-success">Click to test how
                     it
                     works
                 </button>

@@ -11,23 +11,29 @@ const store = createStore(
 
 class App extends Component {
 
-    openAlert(name) {
-        alert(name);
-    }
+    const
+    products = [
+        {
+            id: "1",
+            marca: "Adidas"
+        },
+        {
+            id: "2",
+            marca: "Nike"
+        }
+    ];
 
     render() {
         return (
             <Provider store={store}>
                 <div className="App">
                     <div className="container">
-                        <ProductLine open={this.openAlert.bind(this)} marca="Adidas"/>
-                        <ProductLine open={this.openAlert.bind(this)} marca="Nike"/>
+                        {this.products.map(x => <ProductLine product={x}/> )}
                     </div>
                 </div>
             </Provider>
         );
     }
 }
-
 
 export default App;
