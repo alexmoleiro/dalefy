@@ -7,7 +7,7 @@ import './App.css';
 
 const store = createStore(
     (state, action) => state,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+                       window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
 export class App extends Component {
@@ -21,6 +21,10 @@ export class App extends Component {
             {
                 id: "2",
                 marca: "Nike"
+            },
+            {
+                id: "3",
+                marca: "Rebook"
             }
         ];
     }
