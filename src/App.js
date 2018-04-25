@@ -1,10 +1,13 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
+import imagen from './assets/bambas.png';
 import './App.css';
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import {Provider} from 'react-redux';
+import {createStore} from 'redux';
 
-const store = createStore((state,action)=>state);
+const store = createStore(
+    (state, action) => state,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 class App extends Component {
 
@@ -12,17 +15,28 @@ class App extends Component {
         alert("Hola payo");
     }
 
+    pintar_linea() {
+        return (
+            <div className="container">
+                <div className="col-3 float-left">
+                    <img style={{width: '100%'}} src={imagen}/>
+                </div>
+                <div className="col-8 float-left">
+                    <div onClick={this.openAlert.bind()} className="alert alert-success">Click to test how
+                        it
+                        works
+                    </div>
+                </div>
+
+            </div>);
+    }
+
     render() {
         return (
             <Provider store={store}>
                 <div className="App">
-                    <img src={logo} className="App-logo" alt="logo"/>
-                    <div className="container">
-                        <div onClick={this.openAlert.bind()} className="alert alert-success col-3">Click to test how it
-                            works
-                        </div>
-                        <div className="btn-danger col-4">Te aseguro que es bootstrap</div>
-                    </div>
+                    {this.pintar_linea()}
+                    {this.pintar_linea()}
                 </div>
             </Provider>
         );
