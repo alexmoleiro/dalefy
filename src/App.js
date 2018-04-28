@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 import { connect} from 'react-redux';
-
-
 import ProductLine from './components/ProductLine';
 import Header from './components/Header';
 import './App.css';
