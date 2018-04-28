@@ -1,14 +1,11 @@
-import React, { Component } from 'react';
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import React, {Component} from 'react';
+import { connect} from 'react-redux';
 
-import ProductLine from './ProductLine';
+
+import ProductLine from './components/ProductLine';
+import Header from './components/Header';
 import './App.css';
 
-const store = createStore(
-    (state, action) => state,
-                       window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
 
 export class App extends Component {
     constructor(props) {
@@ -28,18 +25,23 @@ export class App extends Component {
             }
         ];
     }
-  
+
     render() {
         return (
-            <Provider store={store}>
-                <div className="App">
-                    <div className="container">
-                        {this.products.map(x => <ProductLine key={x.id} product={x}/> )}
-                    </div>
+            <div className="App">
+                <div className="container">
+                    <Header/>
+                    {this.products.map(x => <ProductLine key={x.id} product={x}/>)}
                 </div>
-            </Provider>
+            </div>
         );
     }
 }
+const mapStateToProps = (state) => {
+    return {
 
-export default App;
+    }
+};
+// const mapDispatchToProps = {};
+
+export default connect(mapStateToProps)(App);
