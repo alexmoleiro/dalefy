@@ -11,7 +11,7 @@ const ProductLine = (props) => {
     return (
         <div className="row">
             <div className="col-3 float-left">
-                <img style={{width: '100%'}} src={imagen}/>
+                <img alt="bambas" style={{width: '100%'}} src={imagen}/>
             </div>
             <div className="col-8 float-left text-left">
                 <h1>{product.marca}</h1>

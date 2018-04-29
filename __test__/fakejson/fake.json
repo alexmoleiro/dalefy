@@ -1,0 +1,21 @@
+{
+  "products": [
+    {
+      "id": "2",
+      "marca": "Geox"
+    },
+    {
+      "id": "5",
+      "marca": "Timberland"
+    },
+    {
+      "id": "6",
+      "marca": "Camper"
+    }
+  ],
+  "friends": [
+    {
+      "name": "alex"
+    }
+  ]
+}
