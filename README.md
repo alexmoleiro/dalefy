@@ -1,6 +1,6 @@
 # To explore how the side effects work, use 
 #https://github.com/typicode/json-server
-json-server -p 3001 ./src/json/fake.json
+json-server -p 3001 ./__test__/fakejson/fake.json 
 
 # Recursos interesante
 https://github.com/zeke/npm-collection-http-clients
