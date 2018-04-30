@@ -2,7 +2,7 @@ import React from 'react';
 import imagen from './../assets/bambas.png';
 
 const ProductLine = (props) => {
-    const {product, accion} = props;
+    const {product, onClick} = props;
 
     const open = (name) => {
         alert(name);
@@ -17,7 +17,7 @@ const ProductLine = (props) => {
                 <h1>{product.marca}</h1>
                 <div>No hay mucho texto
                 </div>
-                <button type="button"  className="btn btn-success" >Click to test how
+                <button type="button" className="btn btn-success" onClick={() => onClick(product.id)}>Click to test how
                     it
                     works
                 </button>

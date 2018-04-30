@@ -19,6 +19,14 @@ const initialState = [
         id:"5",
         "marca": "Paredes"
     }
-
 ];
-export const products = (state = initialState, action) => state;
+
+export const products = (state = initialState, action) => {
+    switch (action.type) {
+        case "SHOW_PRODUCT":
+            console.log("Show product with id", action.idProduct);
+            return state;
+        default:
+            return state;
+    }
+};

@@ -1,6 +1,0 @@
-export function show_product(idProduct) {
-    return {
-        "type": "SHOW_PRODUCTO",
-        idProduct
-    }
-}
