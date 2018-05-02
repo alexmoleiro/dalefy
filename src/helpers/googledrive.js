@@ -9,6 +9,12 @@ export class GoogleDrive {
     constructor() {
         this.initClient = this.initClient.bind(this);
         gapi.load('client:auth2', this.initClient);
+
+    }
+
+    load() {
+        gapi.load('client:auth2', this.initClient);
+
     }
 
     initClient() {
@@ -28,7 +34,7 @@ export class GoogleDrive {
     // }
 
     isLoggedUser() {
-        return gapi.auth2.getAuthInstance().isSignedIn.get();
+        return  gapi.auth2.getAuthInstance().isSignedIn.get();
     }
 
     listFiles() {

@@ -11,14 +11,7 @@ const initialState = [
         id: "3",
         marca: "Rebook"
     },
-    {
-        id: "4",
-        marca: "Timberland"
-    },
-    {
-        id:"5",
-        "marca": "Paredes"
-    }
+
 ];
 
 export const products = (state = initialState, action) => {

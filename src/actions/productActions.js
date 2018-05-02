@@ -4,3 +4,11 @@ export function showProduct(idProduct) {
         idProduct
     }
 }
+
+export function showLogin(message) {
+    return {
+        type: "SHOW_LOGIN",
+        message
+
+    }
+}
