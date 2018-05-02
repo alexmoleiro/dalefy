@@ -7,6 +7,7 @@ const SCOPES = 'https://www.googleapis.com/auth/drive.metadata.readonly';
 export class GoogleDrive {
 
     constructor() {
+        this.initClient = this.initClient.bind(this);
         gapi.load('client:auth2', this.initClient);
     }
 
@@ -16,23 +17,23 @@ export class GoogleDrive {
             discoveryDocs: DISCOVERY_DOCS,
             scope: SCOPES
         }).then(() => {
-            const isLogged = gapi.auth2.getAuthInstance().isSignedIn.get();
+            const isLogged = this.isLoggedUser();
             if (!isLogged)
                 gapi.auth2.getAuthInstance().signIn();
         });
     }
 
-    handleSignoutClick() {
-        return gapi.auth2.getAuthInstance().signOut();
-    }
+    // handleSignoutClick() {
+    //     return gapi.auth2.getAuthInstance().signOut();
+    // }
 
-    isLogged() {
-        gapi.auth2.getAuthInstance().isSignedIn.get();
+    isLoggedUser() {
+        return gapi.auth2.getAuthInstance().isSignedIn.get();
     }
 
     listFiles() {
         gapi.client.drive.files.list({
-            'pageSize': 10,
+            'pageSize': 50,
             'fields': "nextPageToken, files(id, name)"
         }).then(function (response) {
            console.log(response);
