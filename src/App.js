@@ -4,7 +4,7 @@ import ProductLine from './components/ProductLine';
 import Header from './components/Header';
 import './App.css';
 import {showProduct, googleAuthEvent} from './actions/productActions';
-import {listFiles} from './helpers/googledrive'
+import {listFiles} from './helpers/googledrive';
 import {conf} from './helpers/gapi_conf';
 const gapi = require("./helpers/gapi");
 
@@ -33,7 +33,7 @@ class App extends Component {
                 { !this.props.isAuthenticated && <button onClick={() => gapi.auth2.getAuthInstance().signIn()}>Log in</button> }
                 <div className="container">
                     <Header/>
-                    { this.props.products.map(x => <ProductLine key={x.id} onClick={() => listFiles()} product={x}/>) }
+                    { this.props.products.map(x => <ProductLine key={x.id} onClick={()=>this.props.getFiles()} product={x}/>) }
                 </div>
             </div>
         );
@@ -50,7 +50,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         showProduct: (id) => dispatch(showProduct(id)),
-        googleAuthEvent: (message) => dispatch(googleAuthEvent(message))
+        googleAuthEvent: (message) => dispatch(googleAuthEvent(message)),
+        getFiles: () => dispatch({type: "GET_FILES"})
     }
 }
 
