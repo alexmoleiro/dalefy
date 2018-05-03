@@ -3,13 +3,11 @@ import {connect} from 'react-redux';
 import ProductLine from './components/ProductLine';
 import Header from './components/Header';
 import './App.css';
-import {showProduct, showLogin} from './actions/productActions';
+import {showProduct, googleAuthEvent} from './actions/productActions';
 import {GoogleDrive} from './helpers/googledrive'
+import {conf} from './helpers/gapi_conf';
 const gapi = require("./helpers/gapi");
 
-const CLIENT_ID = '874192150974-bl5i1ij8ig4llnnk861bnld47bnr1a6i.apps.googleusercontent.com';
-const DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/drive/v3/rest"];
-const SCOPES = 'https://www.googleapis.com/auth/drive.metadata.readonly';
 
 class App extends Component {
 
@@ -18,38 +16,33 @@ class App extends Component {
         super(props);
         this.googleDrive = new GoogleDrive();
         this.initClient = this.initClient.bind(this);
-        gapi.load('client:auth2', this.initClient);
+        gapi.load('client:auth2', this.initClient); // it gets the auth2 function
 
     }
 
     initClient() {
 
-        gapi.client.init({
-            clientId: CLIENT_ID,
-            discoveryDocs: DISCOVERY_DOCS,
-            scope: SCOPES
-        }).then(() => {
-            const isLogged = this.isLoggedUser();
-            if (!isLogged) {
-                this.props.loguea("No Logueado");
-            }
-            else {
-                this.props.loguea("Logueado");
-            }
+        gapi.client.init(conf).then(() => {
+            this.isLoggedUser()
+            gapi.auth2.getAuthInstance().isSignedIn.listen(() => this.isLoggedUser())
         });
     }
-    showLogin() {
-        gapi.auth2.getAuthInstance().signIn();
-    }
+
 
     isLoggedUser() {
-        return gapi.auth2.getAuthInstance().isSignedIn.get();
+        if (gapi.auth2.getAuthInstance().isSignedIn.get())
+            this.props.googleAuthEvent(true);
+        else {
+            this.props.googleAuthEvent(false);
+            gapi.auth2.getAuthInstance().signIn();
+
+        }
     }
 
     render() {
-
         return (
             <div className="App">
+                { !this.props.isGoogleAuthenticated && <button>Log in</button> }
                 <div className="container">
                     <Header/>
                     {
@@ -66,13 +59,14 @@ class App extends Component {
 const mapStateToProps = (state) => {
     return {
         products: state.products,
+        isGoogleAuthenticated: state.googleauth.isGoogleAuthenticated,
     }
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
         showProduct: (id) => dispatch(showProduct(id)),
-        loguea: (message) => dispatch(showLogin(message))
+        googleAuthEvent: (message) => dispatch(googleAuthEvent(message))
     }
 }
 

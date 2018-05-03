@@ -5,10 +5,9 @@ export function showProduct(idProduct) {
     }
 }
 
-export function showLogin(message) {
+export function googleAuthEvent(isGoogleAuthenticated) {
     return {
-        type: "SHOW_LOGIN",
-        message
-
+        type: "IS_AUTHENTICATED",
+        isGoogleAuthenticated
     }
 }
