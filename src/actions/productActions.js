@@ -1,3 +1,6 @@
+export const getProcuctsAction = "GET_PRODUCTS";
+export const isAuthenticatedAction = "IS_AUTHENTICATED";
+
 export function showProduct(idProduct) {
     return {
         type: "SHOW_PRODUCT",
@@ -5,9 +8,15 @@ export function showProduct(idProduct) {
     }
 }
 
-export function googleAuthEvent(isGoogleAuthenticated) {
+export function getProducts() {
     return {
-        type: "IS_AUTHENTICATED",
-        isGoogleAuthenticated
+        type: getProcuctsAction,
+    }
+}
+
+export function googleAuthEvent(isAuthenticated) {
+    return {
+        type: isAuthenticatedAction,
+        isAuthenticated
     }
 }
