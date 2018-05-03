@@ -23,32 +23,24 @@ class App extends Component {
     initClient() {
 
         gapi.client.init(conf).then(() => {
-            this.isLoggedUser()
-            gapi.auth2.getAuthInstance().isSignedIn.listen(() => this.isLoggedUser())
+            this.updateReduxWithGoogleAuthInfo()
+            gapi.auth2.getAuthInstance().isSignedIn.listen(() => this.updateReduxWithGoogleAuthInfo())
         });
     }
 
 
-    isLoggedUser() {
-        if (gapi.auth2.getAuthInstance().isSignedIn.get())
-            this.props.googleAuthEvent(true);
-        else {
-            this.props.googleAuthEvent(false);
-            gapi.auth2.getAuthInstance().signIn();
-
-        }
+    updateReduxWithGoogleAuthInfo() {
+            this.props.googleAuthEvent(gapi.auth2.getAuthInstance().isSignedIn.get());
     }
 
     render() {
         return (
             <div className="App">
-                { !this.props.isGoogleAuthenticated && <button>Log in</button> }
+                { !this.props.isGoogleAuthenticated && <button onClick={()=>gapi.auth2.getAuthInstance().signIn()}>Log in</button> }
                 <div className="container">
                     <Header/>
                     {
-                        this.props.products.map(x => <ProductLine key={x.id}
-                                                                  onClick={() => this.googleDrive.listFiles()}
-                                                                  product={x}/>)
+                        this.props.products.map(x => <ProductLine key={x.id} onClick={() => this.googleDrive.listFiles()} product={x}/>)
                     }
                 </div>
             </div>
