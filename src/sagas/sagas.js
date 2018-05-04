@@ -1,11 +1,12 @@
 import {listFiles, uploadFile} from './../helpers/googleapi/googledrive';
+import {getFilesAction, logoutAction} from './../actions/googleDriveActions';
 import {put, call, takeEvery} from 'redux-saga/effects'
 const gapi = require("./../helpers/googleapi/gapi");
 
 export function* getGoogleDriveFiles() {
     try {
         yield put({type: "GET_FILES_DRIVE_REQUEST"});
-        const files = yield listFiles();
+        const files = yield call(listFiles);
         yield put({type: "GET_FILES_DRIVE_SUCCESS", files: Object.values(files.result.files)});
     } catch (ex) {
         yield put({type: "GET_FILES_DRIVE_ERROR", message: ex.message});
@@ -27,7 +28,9 @@ export function* sendFileToGoogleDrive(action) {
             xhr.open("POST", uri, true);
             const token = gapi.auth2.getAuthInstance().currentUser.Ab.Zi.access_token;
             xhr.setRequestHeader("authorization", "Bearer " + token);
-            xhr.onload = () => { resolve(xhr.responseText) }
+            xhr.onload = () => {
+                resolve(xhr.responseText)
+            };
             // xhr.onerror = () => { reject(xhr.statusText) }
             fd.append('myFile', file);
             xhr.send(fd);
@@ -46,7 +49,7 @@ export function* sendFileToGoogleDrive(action) {
 
 
 export function* watchGoogle() {
-    yield takeEvery('GET_FILES', getGoogleDriveFiles)
-    yield takeEvery('LOGOUT', logout);
+    yield takeEvery(getFilesAction, getGoogleDriveFiles)
+    yield takeEvery(logoutAction, logout);
     yield takeEvery('SEND_FILE', sendFileToGoogleDrive);
 }
