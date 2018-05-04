@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 const gapi = require("./../helpers/googleapi/gapi");
 
 
@@ -9,26 +10,8 @@ class UploadFile extends Component {
     }
 
     handleSubmit(event) {
-        this.sendFile(this.fileInput.files[0]);
+        this.props.sendFilesToDrive(this.fileInput.files[0]);
         event.preventDefault();
-    }
-
-    sendFile(file) {
-        var uri = "https://www.googleapis.com/upload/drive/v3/files";
-        var xhr = new XMLHttpRequest();
-        var fd = new FormData();
-
-        xhr.open("POST", uri, true);
-        const token = gapi.auth2.getAuthInstance().currentUser.Ab.Zi.access_token;
-        xhr.setRequestHeader("authorization","Bearer "+token);
-        xhr.withCredentials = true;
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState == 4 && xhr.status == 200) {
-                alert(xhr.responseText);
-            }
-        };
-        fd.append('myFile', file);
-        xhr.send(fd);
     }
 
     render() {
@@ -42,5 +25,13 @@ class UploadFile extends Component {
         );
     }
 }
+const mapStateToProps = (state) => {
+    return {}
+};
 
-export default UploadFile;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        sendFilesToDrive: (file) => dispatch({type: "SEND_FILE", file: file}),
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(UploadFile);
