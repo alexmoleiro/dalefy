@@ -1,4 +1,5 @@
-import {isAuthenticatedAction,logoutAction} from "./../actions/productActions"
+import {isAuthenticatedAction,logoutAction} from "./../actions/productActions";
+
 export const googleauth = (state = {isAuthenticated: false}, action) => {
 
     if (action.type === isAuthenticatedAction) {

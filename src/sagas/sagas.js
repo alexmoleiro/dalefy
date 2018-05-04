@@ -1,6 +1,6 @@
-import {listFiles, uploadFile} from './../helpers/googledrive';
+import {listFiles, uploadFile} from './../helpers/googleapi/googledrive';
 import { put, takeEvery } from 'redux-saga/effects'
-const gapi = require("./../helpers/gapi");
+const gapi = require("./../helpers/googleapi/gapi");
 
 export function* getGoogleDriveFiles() {
     try {
