@@ -1,4 +1,4 @@
-import {isAuthenticatedAction} from "./../actions/productActions"
+import {isAuthenticatedAction,logoutAction} from "./../actions/productActions"
 export const googleauth = (state = {isAuthenticated: false}, action) => {
 
     if (action.type === isAuthenticatedAction) {
@@ -8,6 +8,8 @@ export const googleauth = (state = {isAuthenticated: false}, action) => {
             default:
                 return state;
         }
+    } else if (action.type === logoutAction) {
+        return Object.assign({}, state, {isAuthenticated: false});
     }
     else {
         return state;

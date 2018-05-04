@@ -10,7 +10,10 @@ import {watchGoogle} from './sagas/sagas';
 
 const sagaMiddleware = createSagaMiddleware();
 const reducers = combineReducers({products, googleauth});
-const store = createStore(reducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(), applyMiddleware(sagaMiddleware));
+const store = createStore(  reducers,
+                            window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+                            applyMiddleware(sagaMiddleware)
+);
 sagaMiddleware.run(watchGoogle);
 
 ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));

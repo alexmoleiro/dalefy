@@ -1,15 +1,15 @@
 const initialState = [
     {
         id: "1",
-        marca: "Adidas"
+        name: "Adidas"
     },
     {
         id: "2",
-        marca: "Nike"
+        name: "Nike"
     },
     {
         id: "3",
-        marca: "Rebook"
+        name: "Rebook"
     },
 
 ];
@@ -17,8 +17,9 @@ const initialState = [
 export const products = (state = initialState, action) => {
     switch (action.type) {
         case "SHOW_PRODUCT":
-            console.log("Show product with id", action.idProduct);
             return state;
+        case "GET_FILES_DRIVE_SUCCESS":
+            return Object.assign([],state,action.files)
         default:
             return state;
     }

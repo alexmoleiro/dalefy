@@ -6,7 +6,7 @@ export const listFiles = () => {
         'fields': "nextPageToken, files(id, name)"
     }).then(function (response) {
         if (!response.status === 200) {
-            throw new Error("Are you log in?")
+            throw new Error("Are you logged in?")
         } else {
             return response;
         }

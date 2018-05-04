@@ -3,8 +3,7 @@ import {connect} from 'react-redux';
 import ProductLine from './components/ProductLine';
 import Header from './components/Header';
 import './App.css';
-import {showProduct, googleAuthEvent} from './actions/productActions';
-import {listFiles} from './helpers/googledrive';
+import {showProduct, googleAuthEvent, logout} from './actions/productActions';
 import {conf} from './helpers/gapi_conf';
 const gapi = require("./helpers/gapi");
 
@@ -31,9 +30,17 @@ class App extends Component {
         return (
             <div className="App">
                 { !this.props.isAuthenticated && <button onClick={() => gapi.auth2.getAuthInstance().signIn()}>Log in</button> }
+                { this.props.isAuthenticated && <button onClick={() => this.props.logout()}>Log out</button> }
                 <div className="container">
                     <Header/>
                     { this.props.products.map(x => <ProductLine key={x.id} onClick={()=>this.props.getFiles()} product={x}/>) }
+                </div>
+                <div>
+                    <form method="post" enctype="multipart/form-data"
+                          action="https://www.googleapis.com/upload/drive/v3/files?uploadType=media&token">
+                        <input type="file" name="file"/>
+                            <input type="submit" name="enviar"/>
+                    </form>
                 </div>
             </div>
         );
@@ -51,7 +58,8 @@ const mapDispatchToProps = (dispatch) => {
     return {
         showProduct: (id) => dispatch(showProduct(id)),
         googleAuthEvent: (message) => dispatch(googleAuthEvent(message)),
-        getFiles: () => dispatch({type: "GET_FILES"})
+        getFiles: () => dispatch({type: "GET_FILES"}),
+        logout : () => dispatch(logout()),
     }
 }
 
