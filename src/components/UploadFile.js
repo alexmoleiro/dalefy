@@ -21,6 +21,7 @@ class UploadFile extends Component {
         xhr.open("POST", uri, true);
         xhr.setRequestHeader("authorization","Bearer ya29.GlyxBbg1tCwMc-PbL7GJsJ_QWy_d-An69byhDhNkypldS5czp3iZ7x1ZeHTA5xqCYoZnRIeEFoOn0TFMIRzhDLEni2v8759Hs_SPj5UEEvWV7EKF62digwFnKF7lmg");
         xhr.withCredentials = true;
+
         xhr.onreadystatechange = function () {
             if (xhr.readyState == 4 && xhr.status == 200) {
                 alert(xhr.responseText);
