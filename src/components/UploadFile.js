@@ -19,9 +19,9 @@ class UploadFile extends Component {
         var fd = new FormData();
 
         xhr.open("POST", uri, true);
-        xhr.setRequestHeader("authorization","Bearer ya29.GlyxBbg1tCwMc-PbL7GJsJ_QWy_d-An69byhDhNkypldS5czp3iZ7x1ZeHTA5xqCYoZnRIeEFoOn0TFMIRzhDLEni2v8759Hs_SPj5UEEvWV7EKF62digwFnKF7lmg");
+        const token = gapi.auth2.getAuthInstance().currentUser.Ab.Zi.access_token;
+        xhr.setRequestHeader("authorization","Bearer "+token);
         xhr.withCredentials = true;
-
         xhr.onreadystatechange = function () {
             if (xhr.readyState == 4 && xhr.status == 200) {
                 alert(xhr.responseText);
@@ -35,8 +35,6 @@ class UploadFile extends Component {
         return (
             <form onSubmit={this.handleSubmit}>
                 <label>
-                    Ficherito:
-                    <input type="text" ref={(input) => this.input = input}/>
                     <input type="file" ref={(input) => this.fileInput = input}/>
                 </label>
                 <input type="submit" value="Submit"/>

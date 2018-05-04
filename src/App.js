@@ -15,16 +15,19 @@ class App extends Component {
         super(props);
         this.initClient = this.initClient.bind(this);
         gapi.load('client:auth2', this.initClient); // it gets the auth2 function
+
     }
 
     initClient() {
         gapi.client.init(conf).then(() => {
+            // console.log(gapi.auth2.getAuthInstance());
             this.updateReduxWithGoogleAuthInfo()
             gapi.auth2.getAuthInstance().isSignedIn.listen(() => this.updateReduxWithGoogleAuthInfo())
         });
     }
 
     updateReduxWithGoogleAuthInfo() {
+
         this.props.googleAuthEvent(gapi.auth2.getAuthInstance().isSignedIn.get());
     }
 
