@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import ProductLine from './components/ProductLine';
-import UploadFile from './components/UploadFile'
+import UploadFile from './components/UploadFileForm'
 import Header from './components/Header';
-import {showProduct, googleAuthEvent, logout} from './actions/productActions';
+import {googleAuthEvent, logout} from './actions/productActions';
 import {getFiles} from './actions/googleDriveActions';
 import {conf} from './helpers/googleapi/gapi_conf';
+import {insertJson} from './helpers/googleapi/googledrive';
 import './App.css';
 
 const gapi = require("./helpers/googleapi/gapi");
@@ -39,7 +40,7 @@ class App extends Component {
                 { this.props.isAuthenticated && <button onClick={() => this.props.logout()}>Log out</button> }
                 <div className="container">
                     <Header/>
-                    { this.props.products.map(x => <ProductLine key={x.id} onClick={() => this.props.getFiles()}
+                    { this.props.products.map(x => <ProductLine key={x.id} onClick={() => insertJson()}
                                                                 product={x}/>) }
                 </div>
                 <div>

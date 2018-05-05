@@ -6,7 +6,7 @@ const ProductLine = (props) => {
     return (
         <div className="row">
             <div className="col-3 float-left">
-                <img  src={product.thumbnailLink}/>
+                <img alt=""  src={product.thumbnailLink}/>
             </div>
             <div className="col-8 float-left text-left">
                 <h1>{product.name}</h1>

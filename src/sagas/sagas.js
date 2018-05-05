@@ -2,7 +2,7 @@ import {listFiles, UploadFilePromise} from './../helpers/googleapi/googledrive';
 import {getFilesAction, logoutAction} from './../actions/googleDriveActions';
 import {put, call, takeEvery} from 'redux-saga/effects'
 
-const uri = "https://www.googleapis.com/upload/drive/v3/files";
+
 const gapi = require("./../helpers/googleapi/gapi");
 
 export function* getGoogleDriveFiles() {
@@ -20,11 +20,10 @@ export function* logout() {
 }
 
 export function* sendFileToGoogleDrive(action) {
-    const file = action.file;
     const token = gapi.auth2.getAuthInstance().currentUser.Ab.Zi.access_token;
     yield put({type: "SENDFILE_REQUEST"});
 
-    const uploadPromise = yield call(UploadFilePromise, uri, token, file);
+    const uploadPromise = yield call(UploadFilePromise, token, action.file);
     if (JSON.parse(uploadPromise).error) {
         yield put({type: "SENDFILE_ERROR", message: uploadPromise});
     } else {

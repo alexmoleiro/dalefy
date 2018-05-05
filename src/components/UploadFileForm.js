@@ -1,9 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-const gapi = require("./../helpers/googleapi/gapi");
 
-
-class UploadFile extends Component {
+class UploadFileForm extends Component {
     constructor(props) {
         super(props);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -34,4 +32,4 @@ const mapDispatchToProps = (dispatch) => {
         sendFilesToDrive: (file) => dispatch({type: "SEND_FILE", file: file}),
     }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(UploadFile);
+export default connect(mapStateToProps, mapDispatchToProps)(UploadFileForm);
