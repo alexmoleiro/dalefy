@@ -5,6 +5,7 @@ const uri = "https://www.googleapis.com/upload/drive/v3/files";
 export const listFiles = () => {
     let res = gapi.client.drive.files.list({
         'pageSize': 10,
+        // 'q': "trashed=false and mimeType contains 'image'",
         'q': "trashed=false",
         'fields': "nextPageToken, files (id, name, thumbnailLink, webContentLink, mimeType, trashed, modifiedTime)"
     }).then(function (response) {
@@ -70,3 +71,11 @@ export const insertJson= () => {
             console.log(arg);
         });
 }
+/*
+ drive.files.list({
+ q: "mimeType='image/jpeg'",
+ fields: 'nextPageToken, files(id, name)',
+ spaces: 'drive',
+ pageToken: pageToken
+ }
+ */
