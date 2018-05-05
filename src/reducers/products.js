@@ -1,18 +1,4 @@
-const initialState = [
-    {
-        id: "1",
-        name: "Adidas"
-    },
-    {
-        id: "2",
-        name: "Nike"
-    },
-    {
-        id: "3",
-        name: "Rebook"
-    },
-
-];
+const initialState = [];
 
 export const products = (state = initialState, action) => {
     switch (action.type) {

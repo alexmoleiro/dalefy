@@ -3,9 +3,10 @@ import {connect} from 'react-redux';
 import ProductLine from './components/ProductLine';
 import UploadFile from './components/UploadFile'
 import Header from './components/Header';
-import './App.css';
 import {showProduct, googleAuthEvent, logout} from './actions/productActions';
+import {getFiles} from './actions/googleDriveActions';
 import {conf} from './helpers/googleapi/gapi_conf';
+import './App.css';
 
 const gapi = require("./helpers/googleapi/gapi");
 
@@ -30,6 +31,7 @@ class App extends Component {
     }
 
     render() {
+        { this.props.isAuthenticated && this.props.products.length==0 && this.props.getFiles() }
         return (
             <div className="App">
                 { !this.props.isAuthenticated &&
@@ -58,7 +60,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         googleAuthEvent: (message) => dispatch(googleAuthEvent(message)),
-        getFiles: () => dispatch({type: "GET_FILES"}),
+        getFiles: () => dispatch(getFiles()),
         logout: () => dispatch(logout()),
     }
 }
