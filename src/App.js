@@ -20,14 +20,12 @@ class App extends Component {
 
     initClient() {
         gapi.client.init(conf).then(() => {
-            // console.log(gapi.auth2.getAuthInstance());
             this.updateReduxWithGoogleAuthInfo()
             gapi.auth2.getAuthInstance().isSignedIn.listen(() => this.updateReduxWithGoogleAuthInfo())
         });
     }
 
     updateReduxWithGoogleAuthInfo() {
-
         this.props.googleAuthEvent(gapi.auth2.getAuthInstance().isSignedIn.get());
     }
 
@@ -59,7 +57,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        showProduct: (id) => dispatch(showProduct(id)),
         googleAuthEvent: (message) => dispatch(googleAuthEvent(message)),
         getFiles: () => dispatch({type: "GET_FILES"}),
         logout: () => dispatch(logout()),

@@ -1,6 +1,8 @@
-import {listFiles, uploadFile} from './../helpers/googleapi/googledrive';
+import {listFiles, UploadFilePromise} from './../helpers/googleapi/googledrive';
 import {getFilesAction, logoutAction} from './../actions/googleDriveActions';
 import {put, call, takeEvery} from 'redux-saga/effects'
+
+const uri = "https://www.googleapis.com/upload/drive/v3/files";
 const gapi = require("./../helpers/googleapi/gapi");
 
 export function* getGoogleDriveFiles() {
@@ -19,27 +21,10 @@ export function* logout() {
 
 export function* sendFileToGoogleDrive(action) {
     const file = action.file;
-    var uri = "https://www.googleapis.com/upload/drive/v3/files";
-
-    const UploadFilePromise = () => {
-        return new Promise((resolve, reject) => {
-            const xhr = new XMLHttpRequest();
-            let fd = new FormData();
-            xhr.open("POST", uri, true);
-            const token = gapi.auth2.getAuthInstance().currentUser.Ab.Zi.access_token;
-            xhr.setRequestHeader("authorization", "Bearer " + token);
-            xhr.onload = () => {
-                resolve(xhr.responseText)
-            };
-            // xhr.onerror = () => { reject(xhr.statusText) }
-            fd.append('myFile', file);
-            xhr.send(fd);
-
-        })
-    };
+    const token = gapi.auth2.getAuthInstance().currentUser.Ab.Zi.access_token;
     yield put({type: "SENDFILE_REQUEST"});
 
-    const uploadPromise = yield call(UploadFilePromise);
+    const uploadPromise = yield call(UploadFilePromise, uri, token, file);
     if (JSON.parse(uploadPromise).error) {
         yield put({type: "SENDFILE_ERROR", message: uploadPromise});
     } else {
