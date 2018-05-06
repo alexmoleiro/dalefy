@@ -1,4 +1,4 @@
-import {listFiles, UploadFilePromise} from './../helpers/googleapi/googledrive';
+import {listFiles, UploadFilePromise, insertJson} from './../helpers/googleapi/googledrive';
 import {getFilesAction, logoutAction} from './../actions/googleDriveActions';
 import {put, call, takeEvery} from 'redux-saga/effects'
 
@@ -23,12 +23,13 @@ export function* sendFileToGoogleDrive(action) {
     const token = gapi.auth2.getAuthInstance().currentUser.Ab.Zi.access_token;
     yield put({type: "SENDFILE_REQUEST"});
 
-    const uploadPromise = yield call(UploadFilePromise, token, action.file);
-    if (JSON.parse(uploadPromise).error) {
-        yield put({type: "SENDFILE_ERROR", message: uploadPromise});
-    } else {
-        yield put({type: "SENDFILE_SUCCESS"});
-    }
+    // const uploadPromise = yield call(UploadFilePromise, token, action.file);
+    // if (JSON.parse(uploadPromise).error) {
+    //     yield put({type: "SENDFILE_ERROR", message: uploadPromise});
+    // } else {
+    //     yield put({type: "SENDFILE_SUCCESS"});
+    // }
+    insertJson(action.file)
 }
 
 
