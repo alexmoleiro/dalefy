@@ -6,7 +6,7 @@ import Header from './components/Header';
 import {googleAuthEvent, logout} from './actions/productActions';
 import {getFiles} from './actions/googleDriveActions';
 import {conf} from './helpers/googleapi/gapi_conf';
-import {insertJson} from './helpers/googleapi/googledrive';
+import {uploadMultipart} from './helpers/googleapi/googledrive';
 import './App.css';
 
 const gapi = require("./helpers/googleapi/gapi");
@@ -40,7 +40,7 @@ class App extends Component {
                 { this.props.isAuthenticated && <button onClick={() => this.props.logout()}>Log out</button> }
                 <div className="container">
                     <Header/>
-                    { this.props.products.map(x => <ProductLine key={x.id} onClick={() => insertJson()}
+                    { this.props.products.map(x => <ProductLine key={x.id} onClick={() => alert("hola")}
                                                                 product={x}/>) }
                 </div>
                 <div>

@@ -1,7 +1,6 @@
-import {listFiles, UploadFilePromise, insertJson} from './../helpers/googleapi/googledrive';
+import {listFiles, uploadMultipart, getBase64} from './../helpers/googleapi/googledrive';
 import {getFilesAction, logoutAction} from './../actions/googleDriveActions';
 import {put, call, takeEvery} from 'redux-saga/effects'
-
 
 const gapi = require("./../helpers/googleapi/gapi");
 
@@ -20,18 +19,18 @@ export function* logout() {
 }
 
 export function* sendFileToGoogleDrive(action) {
-    const token = gapi.auth2.getAuthInstance().currentUser.Ab.Zi.access_token;
+
     yield put({type: "SENDFILE_REQUEST"});
-
-    // const uploadPromise = yield call(UploadFilePromise, token, action.file);
-    // if (JSON.parse(uploadPromise).error) {
-    //     yield put({type: "SENDFILE_ERROR", message: uploadPromise});
-    // } else {
-    //     yield put({type: "SENDFILE_SUCCESS"});
-    // }
-    insertJson(action.file)
+    try {
+        const resultado = yield call(getBase64, action.file);
+        const mimetype = resultado.split(",")[0].split(";")[0].split(":")[1];
+        const base64 = resultado.split(',')[1]
+        yield call(uploadMultipart, base64, "sin nombre", mimetype);
+        yield put({type: "SENDFILE_SUCCESS"});
+    } catch (ex) {
+        yield put({type: "SENDFILE_ERROR", message: ex.message});
+    }
 }
-
 
 export function* watchGoogle() {
     yield takeEvery(getFilesAction, getGoogleDriveFiles)
