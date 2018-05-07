@@ -25,7 +25,8 @@ const ProductLine = (props) => {
                     </Grid>
                     <Grid item sm={8}>
                         <Typography variant="headline">{product.name}</Typography>
-                        <Typography variant="subheading" color="textSecondary">No hay mucho texto
+                        <Typography variant="subheading" color="textSecondary">Lo vendo porque ya no me hace falta
+                            y quizá hay alguien que lo puede aprovechar
                         </Typography>
                         <Button variant="raised" onClick={() => onClick(product.id)} component="span">
                             View more

@@ -6,10 +6,16 @@ import Header from './../components/Header';
 import {googleAuthEvent, logout} from './../actions/productActions';
 import {getFiles} from './../actions/googleDriveActions';
 import {conf} from './../helpers/googleapi/gapi_conf';
+import {withStyles} from 'material-ui/styles';
+
+
 import './../css/App.css';
-
 const gapi = require("./../helpers/googleapi/gapi");
-
+const styles = theme => ({
+    button: {
+        margin: theme.spacing.unit,
+    },
+});
 class App extends Component {
 
     constructor(props) {
@@ -37,8 +43,9 @@ class App extends Component {
                 <div className="container">
                     <Header isAuthenticated={this.props.isAuthenticated} logoutAction={() => this.props.logout()}
                             signin={() => gapi.auth2.getAuthInstance().signIn()}/>
-                    {this.props.isAuthenticated && this.props.products.map(x => <ProductLine key={x.id} onClick={() => alert("hola")}
-                                                                product={x}/>) }
+                    {this.props.isAuthenticated && this.props.products.map(x => <ProductLine key={x.id}
+                                                                                             onClick={() => alert("hola")}
+                                                                                             product={x}/>) }
                 </div>
                 {this.props.isAuthenticated && <div>
                     <UploadFile/>
@@ -63,4 +70,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(App));
