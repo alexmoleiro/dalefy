@@ -20,10 +20,10 @@ const ProductLine = (props) => {
         <div>
             <ListItem>
                 <Grid container spacing={8}>
-                    <Grid item xs={12} sm={3} className="pepita">
+                    <Grid item xs={12} sm={3} className="picture">
                         <img alt="" src={product.thumbnailLink}/>
                     </Grid>
-                    <Grid item xs={12} sm={9}  className="pepito">
+                    <Grid item xs={12} sm={9}  className="productbody">
                         <Typography variant="headline">{product.name}</Typography>
                         <Typography variant="subheading" color="textSecondary">I don't use it anymore. Anyone want it?
                         </Typography>
