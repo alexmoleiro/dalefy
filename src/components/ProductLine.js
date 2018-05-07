@@ -4,6 +4,8 @@ import Typography from 'material-ui/Typography';
 import Button from 'material-ui/Button';
 import List, {ListItem, ListItemIcon, ListItemText} from 'material-ui/List';
 import Divider from 'material-ui/Divider';
+import Grid from 'material-ui/Grid';
+
 const styles = theme => ({
     root: {
         width: '100%',
@@ -17,17 +19,19 @@ const ProductLine = (props) => {
     return (
         <div>
             <ListItem>
-                <div className="col-3 float-left">
-                    <img alt="" src={product.thumbnailLink}/>
-                </div>
-                <div className="col-8 float-left text-left">
-                    <Typography variant="headline">{product.name}</Typography>
-                    <Typography variant="subheading" color="textSecondary">No hay mucho texto
-                    </Typography>
-                    <Button variant="raised" onClick={() => onClick(product.id)} component="span">
-                        View more
-                    </Button>
-                </div>
+                <Grid container spacing={24}>
+                    <Grid item sm={3}>
+                        <img alt="" src={product.thumbnailLink}/>
+                    </Grid>
+                    <Grid item sm={8}>
+                        <Typography variant="headline">{product.name}</Typography>
+                        <Typography variant="subheading" color="textSecondary">No hay mucho texto
+                        </Typography>
+                        <Button variant="raised" onClick={() => onClick(product.id)} component="span">
+                            View more
+                        </Button>
+                    </Grid>
+                </Grid>
             </ListItem>
             <Divider/>
         </div>)

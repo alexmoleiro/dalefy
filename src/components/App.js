@@ -36,10 +36,10 @@ class App extends Component {
         return (
             <div className="App">
                 { !this.props.isAuthenticated &&
-                <button onClick={() => gapi.auth2.getAuthInstance().signIn()}>Log in</button> }
-                { this.props.isAuthenticated && <Button variant="raised" color="primary" onClick={() => this.props.logout()}>Log out</Button> }
+                <Button variant="raised" color="primary" onClick={() => gapi.auth2.getAuthInstance().signIn()}>Log in</Button> }
+
                 <div className="container">
-                    <Header/>
+                    <Header isAuthenticated={this.props.isAuthenticated} logoutAction={() => this.props.logout()}/>
                     { this.props.products.map(x => <ProductLine key={x.id} onClick={() => alert("hola")}
                                                                 product={x}/>) }
                 </div>
