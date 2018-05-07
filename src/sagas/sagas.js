@@ -28,7 +28,6 @@ export function* sendFileToGoogleDrive(action) {
         const base64 = resultado.split(',')[1]
         yield call(uploadMultipart, base64, "sin nombre", mimetype);
         yield put({type: "SENDFILE_SUCCESS"});
-        yield delay(1500);
         yield put(getFiles());
     } catch (ex) {
         yield put({type: "SENDFILE_ERROR", message: ex.message});
