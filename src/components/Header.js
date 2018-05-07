@@ -12,14 +12,15 @@ const styles = {
     },
 };
 
-const Header = ({logoutAction, isAuthenticated}) => {
+const Header = ({logoutAction, isAuthenticated, signin}) => {
     return (
         <AppBar position="sticky">
             <Toolbar>
                 <Typography variant="title" color="inherit" style={{ flex: 1 }}>
                     Dalefy.com / learning React Js, Redux and so on.
                 </Typography>
-                {isAuthenticated && <Button variant="raised" color="secondary" onClick={logoutAction}>Log out</Button>}
+                {isAuthenticated && <Button variant="raised" color="primary" onClick={logoutAction}>Log out</Button>}
+                {!isAuthenticated && <Button variant="raised" color="secondary" onClick={signin}>Log in</Button> }
             </Toolbar>
         </AppBar>
     );
