@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import ProductLine from './../components/ProductLine';
-import UploadFile from './../components/UploadFileForm'
 import Header from './../components/Header';
 import {googleAuthEvent, logout} from './../actions/productActions';
 import {getFiles} from './../actions/googleDriveActions';
@@ -46,9 +45,7 @@ class App extends Component {
                                                                                              onClick={() => alert("hola")}
                                                                                              product={x}/>) }
                 </div>
-                {this.props.isAuthenticated && <div>
-                    <UploadFile/>
-                </div>}
+
 
             </div>
         );

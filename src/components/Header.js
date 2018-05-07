@@ -4,7 +4,7 @@ import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
 import Button from 'material-ui/Button';
-import AddIcon from '@material-ui/icons/Add';
+import UploadFile from './../components/UploadFileForm'
 
 const styles = {
     root: {
@@ -16,9 +16,9 @@ const Header = ({logoutAction, isAuthenticated, signin}) => {
     return (
         <AppBar position="sticky">
             <Toolbar>
-                {/*{isAuthenticated && <Button size="small" variant="raised" color="secondary" aria-label="add">*/}
-                    {/*<AddIcon />*/}
-                {/*</Button>}*/}
+                {isAuthenticated && <div>
+                    <UploadFile/>
+                </div>}
                 <Typography variant="title" color="inherit" style={{flex: 1}}>
                     Dalefy.com / learning React Js, Redux and so on.
                 </Typography>
