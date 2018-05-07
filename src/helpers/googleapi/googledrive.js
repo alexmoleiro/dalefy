@@ -31,8 +31,8 @@ export const uploadMultipart = (base64Data, fileName, contentType) => {
     const close_delim = "\r\n--" + boundary + "--";
 
     const metadata = {
-        'title': fileName,
-        'mimeType': contentType
+        'name': fileName,
+        'mimeType': contentType,
     };
     const multipartRequestBody =
         delimiter +
@@ -45,9 +45,9 @@ export const uploadMultipart = (base64Data, fileName, contentType) => {
         base64Data +
         close_delim;
     const request = gapi.client.request({
-        'path': '/upload/drive/v2/files',
+        'path': '/upload/drive/v3/files',
         'method': 'POST',
-        'params': {'uploadType': 'multipart'},
+        'params': {'uploadType': 'multipart','fields':'*'},
         'headers': {
             'Content-Type': 'multipart/mixed; boundary="' + boundary + '"'
         },

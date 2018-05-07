@@ -6,7 +6,6 @@ import Header from './components/Header';
 import {googleAuthEvent, logout} from './actions/productActions';
 import {getFiles} from './actions/googleDriveActions';
 import {conf} from './helpers/googleapi/gapi_conf';
-import {uploadMultipart} from './helpers/googleapi/googledrive';
 import './App.css';
 
 const gapi = require("./helpers/googleapi/gapi");
@@ -32,7 +31,7 @@ class App extends Component {
     }
 
     render() {
-        { this.props.isAuthenticated && this.props.products.length==0 && this.props.getFiles() }
+        this.props.isAuthenticated && this.props.products.length==0 && this.props.getFiles()
         return (
             <div className="App">
                 { !this.props.isAuthenticated &&
