@@ -17,9 +17,9 @@ const Header = ({logoutAction, isAuthenticated, signin}) => {
     return (
         <AppBar position="sticky">
             <Toolbar>
-                <Button size="small" variant="raised" color="secondary" aria-label="add" >
+                {isAuthenticated && <Button size="small" variant="raised" color="secondary" aria-label="add" >
                 <AddIcon />
-            </Button>
+            </Button>}
                 <Typography variant="title" color="inherit" style={{ flex: 1 }}>
                     Dalefy.com / learning React Js, Redux and so on.
                 </Typography>
