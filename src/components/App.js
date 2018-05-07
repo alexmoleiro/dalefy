@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import ProductLine from './components/ProductLine';
-import UploadFile from './components/UploadFileForm'
-import Header from './components/Header';
-import {googleAuthEvent, logout} from './actions/productActions';
-import {getFiles} from './actions/googleDriveActions';
-import {conf} from './helpers/googleapi/gapi_conf';
-import './App.css';
+import ProductLine from './../components/ProductLine';
+import UploadFile from './../components/UploadFileForm'
+import Header from './../components/Header';
+import {googleAuthEvent, logout} from './../actions/productActions';
+import {getFiles} from './../actions/googleDriveActions';
+import {conf} from './../helpers/googleapi/gapi_conf';
+import './../css/App.css';
 
-const gapi = require("./helpers/googleapi/gapi");
+const gapi = require("./../helpers/googleapi/gapi");
 
 class App extends Component {
 
