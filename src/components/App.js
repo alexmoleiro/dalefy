@@ -7,9 +7,8 @@ import {googleAuthEvent, logout} from './../actions/productActions';
 import {getFiles} from './../actions/googleDriveActions';
 import {conf} from './../helpers/googleapi/gapi_conf';
 import {withStyles} from 'material-ui/styles';
-
-
 import './../css/App.css';
+
 const gapi = require("./../helpers/googleapi/gapi");
 const styles = theme => ({
     button: {
@@ -50,6 +49,7 @@ class App extends Component {
                 {this.props.isAuthenticated && <div>
                     <UploadFile/>
                 </div>}
+
             </div>
         );
     }
