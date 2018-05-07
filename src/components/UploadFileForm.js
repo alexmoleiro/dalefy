@@ -21,8 +21,8 @@ class UploadFileForm extends Component {
                 <label>
                     <input type="file" onChange={this.handleSubmit} ref={(input) => this.fileInput = input} style={{ display: 'none' }}/>
                 </label>
-                <Button size="small" variant="raised" color="secondary" aria-label="add">
-                    <AddIcon onClick={()=>this.fileInput.click()}  />
+                <Button onClick={()=>this.fileInput.click()} size="small" variant="raised" color="secondary" aria-label="add">
+                    <AddIcon   />
                 </Button>
             </form>
         );
