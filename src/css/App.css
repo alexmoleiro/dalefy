@@ -1,3 +1,17 @@
 .App {
   text-align: center;
 }
+.pepita {
+  /*background-color: orange;*/
+    position: relative;
+
+}
+.pepita img {
+    width: 100%;
+    max-width: 250px;
+    text-align: center;
+
+}
+.pepito {
+  /*background-color: red;*/
+}

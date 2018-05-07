@@ -20,7 +20,7 @@ const Header = ({logoutAction, isAuthenticated, signin}) => {
                     <UploadFile/>
                 </div>}
                 <Typography variant="title" color="inherit" style={{flex: 1}}>
-                    Dalefy.com / learning React Js, Redux and so on.
+                    Dalefy.com
                 </Typography>
                 {isAuthenticated && <Button variant="raised" color="primary" onClick={logoutAction}>Log out</Button>}
                 {!isAuthenticated && <Button variant="raised" color="secondary" onClick={signin}>Log in</Button> }
