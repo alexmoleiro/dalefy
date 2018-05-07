@@ -2,7 +2,9 @@
 Share things with your friends.
 
 **Made with Reactjs, Redux and Google Drive**
+Enjoy it here
 
+http://dalefy.s3-website-eu-west-1.amazonaws.com/
 
 # How to upload a json to Google Drive
 https://gist.github.com/csusbdt/4525042
