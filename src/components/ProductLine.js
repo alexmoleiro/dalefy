@@ -23,7 +23,7 @@ class ProductLine extends Component {
     }
 
     render() {
-        const {product, dispatchUpdate} = this.props;
+        const {product, updateFile} = this.props;
         return (
             <div>
                 <ListItem>
@@ -33,10 +33,9 @@ class ProductLine extends Component {
                         </Grid>
                         <Grid item xs={12} sm={9} className="productbody">
                             <TextField value={product.name}  />
-                            <Typography variant="subheading" color="textSecondary">I don't use it anymore. Anyone want
-                                it?
+                            <Typography variant="subheading" color="textSecondary">I don't use it anymore. Anyone want it?
                             </Typography>
-                            <Button variant="raised" component="span" onClick={()=>dispatchUpdate(product.id)}>
+                            <Button variant="raised" component="span" onClick={()=>updateFile(product.id)}>
                                 Update
                             </Button>
                         </Grid>
@@ -47,4 +46,10 @@ class ProductLine extends Component {
     }
 }
 
-export default withStyles(styles)(ProductLine);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        updateFile: (fileId) => dispatch(updateFile(fileId)),
+    }
+}
+
+export default connect(null, mapDispatchToProps)(withStyles(styles)(ProductLine));

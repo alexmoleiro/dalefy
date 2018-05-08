@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import ProductLine from './../components/ProductLine';
 import Header from './../components/Header';
 import {googleAuthEvent, logout} from './../actions/productActions';
-import {getFiles, updateFile} from './../actions/googleDriveActions';
+import {getFiles} from './../actions/googleDriveActions';
 import {conf} from './../helpers/googleapi/gapi_conf';
 import {withStyles} from 'material-ui/styles';
 import './../css/App.css';
@@ -42,7 +42,7 @@ class App extends Component {
                         signin={() => gapi.auth2.getAuthInstance().signIn()}/>
                 <div className="container">
                     {this.props.isAuthenticated &&
-                    this.props.products.list.map(x => <ProductLine  key={x.id} product={x} dispatchUpdate={()=>this.props.updateFile(x.id)}/>) }
+                    this.props.products.list.map(x => <ProductLine key={x.id} product={x}/>) }
                 </div>
             </div>
         );
@@ -62,7 +62,6 @@ const mapDispatchToProps = (dispatch) => {
         googleAuthEvent: (message) => dispatch(googleAuthEvent(message)),
         getFiles: () => dispatch(getFiles()),
         logout: () => dispatch(logout()),
-        updateFile: (fileId) => dispatch(updateFile(fileId)),
     }
 }
 
