@@ -1,7 +1,6 @@
 import {listFiles, uploadMultipart, getBase64} from './../helpers/googleapi/googledrive';
 import {getFilesAction, logoutAction, getFiles} from './../actions/googleDriveActions';
 import {put, call, takeEvery} from 'redux-saga/effects'
-import {delay} from 'redux-saga';
 
 const gapi = require("./../helpers/googleapi/gapi");
 

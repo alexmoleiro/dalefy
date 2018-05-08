@@ -5,8 +5,32 @@ Share things with your friends.
 Enjoy it here
 
 http://dalefy.s3-website-eu-west-1.amazonaws.com/
+# Run
+1.- Install Node
 
-# How to upload a json to Google Drive
+2.- npm install
+
+3.- npm start
+
+http://localhost:3000
+
+# Testing
+npm test
+
+# Tools
+https://material-ui-next.com/
+
+https://facebook.github.io/jest/
+
+https://redux-saga.js.org/docs/api/
+
+https://redux.js.org/introduction
+
+https://reactjs.org/
+
+# Snippets
+**How to upload a json to Google Drive**
+
 https://gist.github.com/csusbdt/4525042
 ```
  var appState = {
@@ -15,7 +39,7 @@ https://gist.github.com/csusbdt/4525042
          };
  var base64Data = btoa(JSON.stringify(appState));
  ```
- # Full code
+ **Full code**
 ```
   function insertFile() {
          const boundary = '-------314159265358979323846264';
@@ -55,7 +79,7 @@ https://gist.github.com/csusbdt/4525042
          });
        }
 ```
- # How to upload a file using Xhr
+**How to upload a file using Xhr**
 ```
  const uri = "https://www.googleapis.com/upload/drive/v3/files";
  export const UploadFilePromise = (token, file) => {
@@ -75,5 +99,6 @@ https://gist.github.com/csusbdt/4525042
  };
  ```
  
- # Multiple query
+ **Multiple query**
+ 
          // 'q': "trashed=false and mimeType contains 'image'",
