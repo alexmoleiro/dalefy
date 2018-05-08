@@ -102,3 +102,18 @@ https://gist.github.com/csusbdt/4525042
  **Multiple query**
  
          // 'q': "trashed=false and mimeType contains 'image'",
+
+**Not working yet but willing to use this pattern to test side effects**
+```
+import jest from 'jest-mock';
+test('runSaga', async (expect) => {
+
+        // const listFilesMock = jest.fn().mockReturnValue({type:"hola"});
+        const saga = await runSaga({
+            dispatch: (action) => dispatched.push(getFiles()),
+            getState: () => ({value: 'test'}),
+        }, getGoogleDriveFiles).done;
+    });
+
+    expect({}).toBe({});
+```

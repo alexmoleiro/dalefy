@@ -1,5 +1,6 @@
 export const isAuthenticatedAction = "IS_AUTHENTICATED";
 export const logoutAction = "LOGOUT";
+export const showProductAction = "SHOW_PRODUCT";
 
 
 
