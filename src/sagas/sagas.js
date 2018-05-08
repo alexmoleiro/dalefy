@@ -1,5 +1,11 @@
-import {listFiles, uploadMultipart, getBase64} from './../helpers/googleapi/googledrive';
-import {getFilesAction, logoutAction, getFiles, getFilesDriveSuccess} from './../actions/googleDriveActions';
+import {listFiles, uploadMultipart, getBase64, updateFileDrive} from './../helpers/googleapi/googledrive';
+import {
+    getFilesAction,
+    logoutAction,
+    getFiles,
+    getFilesDriveSuccess,
+    updateFileAction
+} from './../actions/googleDriveActions';
 import {put, call, takeEvery} from 'redux-saga/effects'
 
 const gapi = require("./../helpers/googleapi/gapi");
@@ -33,8 +39,21 @@ export function* sendFileToGoogleDrive(action) {
     }
 }
 
+function* updateFileGoogleDrive(action) {
+    try {
+        yield put({type: "UPDATING_FILE_REQUEST"});
+        yield call(updateFileDrive, action.fileId);
+        yield put({type: "UPDATING_FILE_SUCCESS"});
+    }
+    catch (ex) {
+        yield put({type: "UPDATING_FILE_ERROR", message: ex.message});
+    }
+
+}
+
 export function* watchGoogle() {
     yield takeEvery(getFilesAction, getGoogleDriveFiles)
     yield takeEvery(logoutAction, logout);
     yield takeEvery('SEND_FILE', sendFileToGoogleDrive);
+    yield takeEvery(updateFileAction, updateFileGoogleDrive);
 }
