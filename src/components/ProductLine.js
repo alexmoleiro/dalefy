@@ -2,7 +2,7 @@ import React from 'react';
 import {withStyles} from 'material-ui/styles';
 import Typography from 'material-ui/Typography';
 import Button from 'material-ui/Button';
-import List, {ListItem, ListItemIcon, ListItemText} from 'material-ui/List';
+import {ListItem} from 'material-ui/List';
 import Divider from 'material-ui/Divider';
 import Grid from 'material-ui/Grid';
 

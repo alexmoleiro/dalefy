@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c790fb41-3621-43c1-bb29-e16013b9d9fc" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/reducers/googleauth.spec.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/App.js" afterPath="$PROJECT_DIR$/src/components/App.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/App.spec.js" afterPath="$PROJECT_DIR$/src/components/App.spec.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/reducers/products.js" afterPath="$PROJECT_DIR$/src/reducers/products.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/ProductLine.js" afterPath="$PROJECT_DIR$/src/components/ProductLine.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/reducers/googleauth.js" afterPath="$PROJECT_DIR$/src/reducers/googleauth.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,8 +20,8 @@
       <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1056">
-              <caret line="48" column="10" lean-forward="true" selection-start-line="48" selection-start-column="10" selection-end-line="48" selection-end-column="10" />
+            <state relative-caret-position="283">
+              <caret line="55" column="49" lean-forward="true" selection-start-line="55" selection-start-column="49" selection-end-line="55" selection-end-column="49" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -29,11 +29,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="App.spec.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="App.spec.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/App.spec.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+            <state relative-caret-position="276">
+              <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="46" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
               </folding>
@@ -61,21 +61,55 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/index.js">
+      <file leaf-file-name="googleauth.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/reducers/googleauth.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+            <state relative-caret-position="0">
+              <caret line="0" column="41" lean-forward="false" selection-start-line="0" selection-start-column="41" selection-end-line="0" selection-end-column="41" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="googleauth.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/reducers/googleauth.js">
+      <file leaf-file-name="ProductLine.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/ProductLine.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="20">
-              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+            <state relative-caret-position="525">
+              <caret line="35" column="22" lean-forward="true" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="googleauth.spec.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/reducers/googleauth.spec.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="9" column="38" lean-forward="false" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
+              <folding>
+                <element signature="e#0#40#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="productActions.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/actions/productActions.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="31" lean-forward="false" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="googleDriveActions.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/actions/googleDriveActions.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" column="13" lean-forward="false" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -166,17 +200,18 @@
         <option value="$PROJECT_DIR$/src/helpers/googleapi/gapi_conf.js" />
         <option value="$PROJECT_DIR$/src/helpers/googleapi/googledrive.js" />
         <option value="$PROJECT_DIR$/src/components/Header.js" />
-        <option value="$PROJECT_DIR$/src/components/ProductLine.js" />
         <option value="$PROJECT_DIR$/src/css/App.css" />
         <option value="$PROJECT_DIR$/src/sagas/sagas.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/components/App.js" />
-        <option value="$PROJECT_DIR$/src/reducers/googleauth.js" />
         <option value="$PROJECT_DIR$/src/reducers/products.js" />
         <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/src/Learning.spec.js" />
         <option value="$PROJECT_DIR$/src/components/App.spec.js" />
+        <option value="$PROJECT_DIR$/src/reducers/googleauth.spec.js" />
+        <option value="$PROJECT_DIR$/src/components/ProductLine.js" />
+        <option value="$PROJECT_DIR$/src/reducers/googleauth.js" />
       </list>
     </option>
   </component>
@@ -473,6 +508,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="reducers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dalefy.com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dalefy.com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="components" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -518,18 +571,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Jest.should render without crashing">
-    <configuration default="false" name="should render two ProductLines" type="JavaScriptTestRunnerJest" factoryName="Jest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/components/App.spec.js" />
-      <test-names>
-        <test-name value="should render two ProductLines" />
-      </test-names>
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Jest.googleauth reducer">
     <configuration default="false" name="should render without crashing" type="JavaScriptTestRunnerJest" factoryName="Jest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <working-dir value="$PROJECT_DIR$" />
@@ -549,6 +591,40 @@
       <test-file value="$PROJECT_DIR$/src/Learning.spec.js" />
       <test-names>
         <test-name value="two plus two is four" />
+      </test-names>
+      <method />
+    </configuration>
+    <configuration default="false" name="given a state retur googleauth yes" type="JavaScriptTestRunnerJest" factoryName="Jest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/src/reducers/googleauth.spec.js" />
+      <test-names>
+        <test-name value="given a state retur googleauth yes" />
+      </test-names>
+      <method />
+    </configuration>
+    <configuration default="false" name="given a state retur googleauth yes.should render two ProductLines" type="JavaScriptTestRunnerJest" factoryName="Jest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/reducers/googleauth.spec.js" />
+      <test-names>
+        <test-name value="given a state retur googleauth yes" />
+        <test-name value="should render two ProductLines" />
+      </test-names>
+      <method />
+    </configuration>
+    <configuration default="false" name="googleauth reducer" type="JavaScriptTestRunnerJest" factoryName="Jest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/src/reducers/googleauth.spec.js" />
+      <test-names>
+        <test-name value="googleauth reducer" />
       </test-names>
       <method />
     </configuration>
@@ -1127,17 +1203,21 @@
       <scope-kind value="ALL" />
       <method />
     </configuration>
-    <list size="4">
+    <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Jest.Jest" />
-      <item index="1" class="java.lang.String" itemvalue="Jest.should render two ProductLines" />
-      <item index="2" class="java.lang.String" itemvalue="Jest.should render without crashing" />
-      <item index="3" class="java.lang.String" itemvalue="Jest.two plus two is four" />
+      <item index="1" class="java.lang.String" itemvalue="Jest.should render without crashing" />
+      <item index="2" class="java.lang.String" itemvalue="Jest.two plus two is four" />
+      <item index="3" class="java.lang.String" itemvalue="Jest.given a state retur googleauth yes" />
+      <item index="4" class="java.lang.String" itemvalue="Jest.given a state retur googleauth yes.should render two ProductLines" />
+      <item index="5" class="java.lang.String" itemvalue="Jest.googleauth reducer" />
     </list>
     <recent_temporary>
-      <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="Jest.should render without crashing" />
-        <item index="1" class="java.lang.String" itemvalue="Jest.two plus two is four" />
-        <item index="2" class="java.lang.String" itemvalue="Jest.should render two ProductLines" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Jest.googleauth reducer" />
+        <item index="1" class="java.lang.String" itemvalue="Jest.given a state retur googleauth yes" />
+        <item index="2" class="java.lang.String" itemvalue="Jest.given a state retur googleauth yes.should render two ProductLines" />
+        <item index="3" class="java.lang.String" itemvalue="Jest.should render without crashing" />
+        <item index="4" class="java.lang.String" itemvalue="Jest.two plus two is four" />
       </list>
     </recent_temporary>
   </component>
@@ -1172,47 +1252,48 @@
       <workItem from="1525471502195" duration="10066000" />
       <workItem from="1525638456075" duration="17138000" />
       <workItem from="1525726620649" duration="3968000" />
-      <workItem from="1525766232263" duration="4872000" />
+      <workItem from="1525766232263" duration="6298000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="should_render_two_ProductLines - 2018.05.08 at 11h 16m 53s.xml">
-      <configuration name="should render two ProductLines" configurationId="JavaScriptTestRunnerJest" />
+    <history-entry file="googleauth_reducer - 2018.05.08 at 12h 07m 38s.xml">
+      <configuration name="googleauth reducer" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="should_render_two_ProductLines - 2018.05.08 at 11h 17m 20s.xml">
-      <configuration name="should render two ProductLines" configurationId="JavaScriptTestRunnerJest" />
+    <history-entry file="googleauth_reducer - 2018.05.08 at 12h 07m 46s.xml">
+      <configuration name="googleauth reducer" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="should_render_two_ProductLines - 2018.05.08 at 11h 17m 56s.xml">
-      <configuration name="should render two ProductLines" configurationId="JavaScriptTestRunnerJest" />
+    <history-entry file="googleauth_reducer - 2018.05.08 at 12h 08m 03s.xml">
+      <configuration name="googleauth reducer" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="should_render_two_ProductLines - 2018.05.08 at 11h 28m 00s.xml">
-      <configuration name="should render two ProductLines" configurationId="JavaScriptTestRunnerJest" />
+    <history-entry file="googleauth_reducer - 2018.05.08 at 12h 08m 47s.xml">
+      <configuration name="googleauth reducer" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="should_render_without_crashing - 2018.05.08 at 11h 34m 49s.xml">
-      <configuration name="should render without crashing" configurationId="JavaScriptTestRunnerJest" />
+    <history-entry file="googleauth_reducer - 2018.05.08 at 12h 10m 35s.xml">
+      <configuration name="googleauth reducer" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="should_render_without_crashing - 2018.05.08 at 11h 35m 01s.xml">
-      <configuration name="should render without crashing" configurationId="JavaScriptTestRunnerJest" />
+    <history-entry file="googleauth_reducer - 2018.05.08 at 12h 11m 03s.xml">
+      <configuration name="googleauth reducer" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="should_render_without_crashing - 2018.05.08 at 11h 35m 19s.xml">
-      <configuration name="should render without crashing" configurationId="JavaScriptTestRunnerJest" />
+    <history-entry file="googleauth_reducer - 2018.05.08 at 12h 13m 27s.xml">
+      <configuration name="googleauth reducer" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="should_render_without_crashing - 2018.05.08 at 11h 44m 12s.xml">
-      <configuration name="should render without crashing" configurationId="JavaScriptTestRunnerJest" />
+    <history-entry file="googleauth_reducer - 2018.05.08 at 12h 14m 19s.xml">
+      <configuration name="googleauth reducer" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="should_render_without_crashing - 2018.05.08 at 11h 44m 39s.xml">
-      <configuration name="should render without crashing" configurationId="JavaScriptTestRunnerJest" />
+    <history-entry file="googleauth_reducer - 2018.05.08 at 12h 14m 56s.xml">
+      <configuration name="googleauth reducer" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="two_plus_two_is_four - 2018.05.08 at 11h 41m 55s.xml">
-      <configuration name="two plus two is four" configurationId="JavaScriptTestRunnerJest" />
+    <history-entry file="googleauth_reducer - 2018.05.08 at 12h 15m 02s.xml">
+      <configuration name="googleauth reducer" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="126990000" />
+    <option name="totallyTimeSpent" value="128416000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1233,10 +1314,10 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.46237624" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2841584" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44385028" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.280198" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26996806" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.280198" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14962727" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1266,13 +1347,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/registerServiceWorker.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1396,22 +1470,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/actions/productActions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="16" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/actions/googleDriveActions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="16" lean-forward="false" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/manifest.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1515,14 +1573,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/ProductLine.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/UploadFileForm.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -1543,14 +1593,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/reducers/googleauth.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1587,23 +1629,67 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/App.spec.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="46" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1056">
-          <caret line="48" column="10" lean-forward="true" selection-start-line="48" selection-start-column="10" selection-end-line="48" selection-end-column="10" />
+        <state relative-caret-position="283">
+          <caret line="55" column="49" lean-forward="true" selection-start-line="55" selection-start-column="49" selection-end-line="55" selection-end-column="49" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/App.spec.js">
+    <entry file="file://$PROJECT_DIR$/src/actions/productActions.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        <state relative-caret-position="75">
+          <caret line="5" column="31" lean-forward="false" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/actions/googleDriveActions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="13" lean-forward="false" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/ProductLine.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="35" column="22" lean-forward="true" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
           <folding>
-            <element signature="e#0#25#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/reducers/googleauth.spec.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="38" lean-forward="false" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/reducers/googleauth.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="41" lean-forward="false" selection-start-line="0" selection-start-column="41" selection-end-line="0" selection-end-column="41" />
+          <folding />
         </state>
       </provider>
     </entry>
