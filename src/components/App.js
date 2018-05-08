@@ -20,7 +20,6 @@ class App extends Component {
         super(props);
         this.initClient = this.initClient.bind(this);
         gapi.load('client:auth2', this.initClient); // it gets the auth2 function
-
     }
 
     initClient() {
@@ -41,9 +40,8 @@ class App extends Component {
                 <Header isAuthenticated={this.props.isAuthenticated} logoutAction={() => this.props.logout()}
                         signin={() => gapi.auth2.getAuthInstance().signIn()}/>
                 <div className="container">
-                    {this.props.isAuthenticated && this.props.products.list.map(x => <ProductLine key={x.id}
-                                                                                                  onClick={() => alert("hola")}
-                                                                                                  product={x}/>) }
+                    {this.props.isAuthenticated &&
+                    this.props.products.list.map(x => <ProductLine key={x.id} product={x}/>) }
                 </div>
             </div>
         );
@@ -54,6 +52,7 @@ const mapStateToProps = (state) => {
     return {
         products: state.products,
         isAuthenticated: state.googleauth.isAuthenticated,
+
     }
 };
 
