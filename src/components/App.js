@@ -6,7 +6,6 @@ import {googleAuthEvent, logout} from './../actions/productActions';
 import {getFiles} from './../actions/googleDriveActions';
 import {conf} from './../helpers/googleapi/gapi_conf';
 import {withStyles} from 'material-ui/styles';
-import Grid from 'material-ui/Grid';
 import './../css/App.css';
 
 const gapi = require("./../helpers/googleapi/gapi");
@@ -36,16 +35,15 @@ class App extends Component {
     }
 
     render() {
-        this.props.isAuthenticated && this.props.products.length == 0 && this.props.getFiles()
+        this.props.isAuthenticated && this.props.products.isFirstLoad == true && this.props.getFiles()
         return (
-            <div className="App" >
-
-                    <Header isAuthenticated={this.props.isAuthenticated} logoutAction={() => this.props.logout()}
-                            signin={() => gapi.auth2.getAuthInstance().signIn()}/>
+            <div className="App">
+                <Header isAuthenticated={this.props.isAuthenticated} logoutAction={() => this.props.logout()}
+                        signin={() => gapi.auth2.getAuthInstance().signIn()}/>
                 <div className="container">
-                    {this.props.isAuthenticated && this.props.products.map(x => <ProductLine key={x.id}
-                                                                                             onClick={() => alert("hola")}
-                                                                                             product={x}/>) }
+                    {this.props.isAuthenticated && this.props.products.list.map(x => <ProductLine key={x.id}
+                                                                                                  onClick={() => alert("hola")}
+                                                                                                  product={x}/>) }
                 </div>
             </div>
         );
