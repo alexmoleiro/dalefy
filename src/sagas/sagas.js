@@ -1,5 +1,5 @@
 import {listFiles, uploadMultipart, getBase64} from './../helpers/googleapi/googledrive';
-import {getFilesAction, logoutAction, getFiles} from './../actions/googleDriveActions';
+import {getFilesAction, logoutAction, getFiles, getFilesDriveSuccess} from './../actions/googleDriveActions';
 import {put, call, takeEvery} from 'redux-saga/effects'
 
 const gapi = require("./../helpers/googleapi/gapi");
@@ -8,7 +8,7 @@ export function* getGoogleDriveFiles() {
     try {
         yield put({type: "GET_FILES_DRIVE_REQUEST"});
         const files = yield call(listFiles);
-        yield put({type: "GET_FILES_DRIVE_SUCCESS", files: Object.values(files.result.files)});
+        yield put(getFilesDriveSuccess(files.result.files));
     } catch (ex) {
         yield put({type: "GET_FILES_DRIVE_ERROR", message: ex.message});
     }
@@ -22,9 +22,9 @@ export function* sendFileToGoogleDrive(action) {
 
     yield put({type: "SENDFILE_REQUEST"});
     try {
-        const resultado = yield call(getBase64, action.file);
-        const mimetype = resultado.split(",")[0].split(";")[0].split(":")[1];
-        const base64 = resultado.split(',')[1]
+        const base64Object = yield call(getBase64, action.file);
+        const mimetype = base64Object.split(",")[0].split(";")[0].split(":")[1];
+        const base64 = base64Object.split(',')[1]
         yield call(uploadMultipart, base64, "sin nombre", mimetype);
         yield put({type: "SENDFILE_SUCCESS"});
         yield put(getFiles());
