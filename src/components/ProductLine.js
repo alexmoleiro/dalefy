@@ -20,10 +20,15 @@ class ProductLine extends Component {
 
     constructor(props) {
         super(props);
+        this.state = {name:props.product.name}
     }
 
+    handleChange(event) {
+        this.setState({name:event.target.value})
+    }
     render() {
         const {product, updateFile} = this.props;
+
         return (
             <div>
                 <ListItem>
@@ -32,10 +37,11 @@ class ProductLine extends Component {
                             <img alt="" src={product.thumbnailLink}/>
                         </Grid>
                         <Grid item xs={12} sm={9} className="productbody">
-                            <TextField value={product.name}  />
-                            <Typography variant="subheading" color="textSecondary">I don't use it anymore. Anyone want it?
+                            <TextField value={this.state.name} onChange={(event)=>this.handleChange(event)}/>
+                            <Typography variant="subheading" color="textSecondary">I don't use it anymore. Anyone want
+                                it?
                             </Typography>
-                            <Button variant="raised" component="span" onClick={()=>updateFile(product.id)}>
+                            <Button variant="raised" component="span" onClick={() => updateFile(product.id, this.state.name)}>
                                 Update
                             </Button>
                         </Grid>
@@ -48,7 +54,7 @@ class ProductLine extends Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        updateFile: (fileId) => dispatch(updateFile(fileId)),
+        updateFile: (fileId,name) => dispatch(updateFile(fileId,name)),
     }
 }
 

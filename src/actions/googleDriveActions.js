@@ -11,6 +11,6 @@ export function getFilesDriveSuccess(files) {
     return {type: getFilesDriveSuccessAction, files: Object.values(files)};
 }
 
-export function updateFile(fileId) {
-    return {type: updateFileAction, fileId};
+export function updateFile(fileId, name) {
+    return {type: updateFileAction, fileId, name};
 }
