@@ -20,7 +20,6 @@ class App extends Component {
         super(props);
         this.initClient = this.initClient.bind(this);
         gapi.load('client:auth2', this.initClient); // it gets the auth2 function
-        console.log(this.state)
     }
 
     initClient() {
