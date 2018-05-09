@@ -4,7 +4,7 @@ export const listFiles = () => {
     let res = gapi.client.drive.files.list({
         'pageSize': 10,
         'q': "trashed=false",
-        'fields': "nextPageToken, files (id, name, thumbnailLink, webContentLink, mimeType, trashed, modifiedTime)"
+        'fields': "nextPageToken, files (id, description, name, thumbnailLink, webContentLink, mimeType, trashed, modifiedTime)"
     }).then(function (response) {
         if (!response.status === 200) {
             throw new Error("Are you logged in?")
@@ -64,7 +64,10 @@ export const updateFileDrive = (fileId, form) => {
         const request = gapi.client.request({
             'path': '/drive/v2/files/' + fileId,
             'method': 'PUT',
-            'body': {title: form.name}
+            'body': {
+                title: form.name,
+                description: form.description,
+            }
         });
         request.execute(function (arg) {
             resolve(arg);
