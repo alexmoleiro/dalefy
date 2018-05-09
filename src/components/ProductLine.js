@@ -1,30 +1,42 @@
 import React, {Component} from 'react';
-import {withStyles} from 'material-ui/styles';
-import Typography from 'material-ui/Typography';
 import Button from 'material-ui/Button';
-import {ListItem} from 'material-ui/List';
 import Divider from 'material-ui/Divider';
 import Grid from 'material-ui/Grid';
 import TextField from 'material-ui/TextField';
 import {connect} from 'react-redux';
 import {updateFile} from './../actions/googleDriveActions';
+import List, {ListItem} from 'material-ui/List';
 
-const styles = theme => ({
-    root: {
-        width: '100%',
-        maxWidth: 360,
-        backgroundColor: theme.palette.background.paper,
-    },
-});
 class ProductLine extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {name: props.product.name}
+        this.state = {
+            form: {
+                name: props.product.name,
+                description: props.product.description,
+            },
+            showUpdateButton:false
+        }
     }
 
-    handleChange(event) {
-        this.setState({name: event.target.value})
+    handleChange(event, field) {
+        const {name, description} = this.state.form;
+
+        if (field === "name") {
+            this.setState({form: {name: event.target.value, description},showUpdateButton:true})
+        }
+
+        if (field === "description") {
+            this.setState({form: {description: event.target.value, name}, showUpdateButton:true})
+        }
+    }
+
+    sendAction(fileId) {
+        const {name, description} = this.state.form;
+        this.props.updateFile(fileId, this.state.form);
+        this.setState({form: {description, name}, showUpdateButton:false})
+
     }
 
     render() {
@@ -38,26 +50,36 @@ class ProductLine extends Component {
                             <img alt="" src={product.thumbnailLink}/>
                         </Grid>
                         <Grid item xs={12} sm={9} className="productbody">
-                            <TextField value={this.state.name} onChange={(event) => this.handleChange(event)}/>
-                            <Typography variant="subheading" color="textSecondary">You can update the name of the
-                                product so far ;-)
-                            </Typography>
-                            <Button variant="raised" component="span"
-                                    onClick={() => updateFile(product.id, this.state.name)}>
-                                Update
-                            </Button>
+                            <List>
+                                <ListItem >
+                                    <TextField label="Name" value={this.state.form.name}
+                                               onChange={(event) => this.handleChange(event, "name")}/>
+                                </ListItem>
+                                <ListItem>
+                                    <TextField label="Description" multiline rowsMax="4" fullWidth value={this.state.form.description}
+                                               onChange={(event) => this.handleChange(event, "description")}/>
+                                </ListItem>
+                                <ListItem >
+                                    { this.state.showUpdateButton && <Button variant="raised" component="span"
+                                            onClick={() => this.sendAction(product.id)}>
+                                        Update
+                                    </Button> }
+                                </ListItem>
+                            </List>
                         </Grid>
                     </Grid>
                 </ListItem>
                 <Divider/>
-            </div>)
+            </div>
+        )
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        updateFile: (fileId, name) => dispatch(updateFile(fileId, name)),
+        updateFile: (fileId, form) => dispatch(updateFile(fileId, form)),
     }
 }
 
-export default connect(null, mapDispatchToProps)(withStyles(styles)(ProductLine));
+// export default connect(null, mapDispatchToProps)(withStyles(styles)(ProductLine));
+export default connect(null, mapDispatchToProps)(ProductLine);
