@@ -4,7 +4,6 @@
     <list default="true" id="c790fb41-3621-43c1-bb29-e16013b9d9fc" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/ProductLine.js" afterPath="$PROJECT_DIR$/src/components/ProductLine.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/helpers/googleapi/googledrive.js" afterPath="$PROJECT_DIR$/src/helpers/googleapi/googledrive.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,9 +18,11 @@
       <file leaf-file-name="ProductLine.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/ProductLine.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="458">
-              <caret line="61" column="37" lean-forward="false" selection-start-line="61" selection-start-column="37" selection-end-line="61" selection-end-column="37" />
-              <folding />
+            <state relative-caret-position="460">
+              <caret line="60" column="62" lean-forward="true" selection-start-line="60" selection-start-column="62" selection-end-line="60" selection-end-column="62" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -1301,7 +1302,7 @@
       <workItem from="1525638456075" duration="17138000" />
       <workItem from="1525726620649" duration="3968000" />
       <workItem from="1525766232263" duration="6298000" />
-      <workItem from="1525853628694" duration="2792000" />
+      <workItem from="1525853628694" duration="3431000" />
     </task>
     <servers />
   </component>
@@ -1338,7 +1339,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="147773000" />
+    <option name="totallyTimeSpent" value="148412000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="23" width="1680" height="1049" extended-state="0" />
@@ -1408,7 +1409,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1616,6 +1619,7 @@
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="90">
             <caret line="6" column="3" lean-forward="false" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+            <folding />
           </first_editor>
           <second_editor />
         </state>
@@ -1714,9 +1718,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/ProductLine.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="458">
-          <caret line="61" column="37" lean-forward="false" selection-start-line="61" selection-start-column="37" selection-end-line="61" selection-end-column="37" />
-          <folding />
+        <state relative-caret-position="460">
+          <caret line="60" column="62" lean-forward="true" selection-start-line="60" selection-start-column="62" selection-end-line="60" selection-end-column="62" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
