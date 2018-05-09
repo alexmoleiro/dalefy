@@ -59,12 +59,12 @@ export const uploadMultipart = (base64Data, fileName, contentType) => {
     });
 };
 
-export const updateFileDrive = (fileId, name) => {
+export const updateFileDrive = (fileId, form) => {
     return new Promise((resolve, reject) => {
         const request = gapi.client.request({
             'path': '/drive/v2/files/' + fileId,
             'method': 'PUT',
-            'body': {title: name}
+            'body': {title: form.name}
         });
         request.execute(function (arg) {
             resolve(arg);

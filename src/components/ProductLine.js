@@ -20,43 +20,50 @@ class ProductLine extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {name: props.product.name}
+        this.state = {
+            form: {
+                name: props.product.name,
+                description: "descripcion",
+            }
+        }
     }
 
-    handleChange(event) {
-        this.setState({name: event.target.value})
-    }
+handleChange(event)
+{
+    this.setState({form:{name: event.target.value}})
+}
 
-    render() {
-        const {product, updateFile} = this.props;
+render()
+{
+    const {product, updateFile} = this.props;
 
-        return (
-            <div>
-                <ListItem>
-                    <Grid container spacing={8}>
-                        <Grid item xs={12} sm={3} className="picture">
-                            <img alt="" src={product.thumbnailLink}/>
-                        </Grid>
-                        <Grid item xs={12} sm={9} className="productbody">
-                            <TextField value={this.state.name} onChange={(event) => this.handleChange(event)}/>
-                            <Typography variant="subheading" color="textSecondary">You can update the name of the
-                                product so far ;-)
-                            </Typography>
-                            <Button variant="raised" component="span"
-                                    onClick={() => updateFile(product.id, this.state.name)}>
-                                Update
-                            </Button>
-                        </Grid>
+    return (
+        <div>
+            <ListItem>
+                <Grid container spacing={8}>
+                    <Grid item xs={12} sm={3} className="picture">
+                        <img alt="" src={product.thumbnailLink}/>
                     </Grid>
-                </ListItem>
-                <Divider/>
-            </div>)
-    }
+                    <Grid item xs={12} sm={9} className="productbody">
+                        <TextField value={this.state.form.name} onChange={(event) => this.handleChange(event)}/>
+                        <Typography variant="subheading" color="textSecondary">You can update the name of the
+                            product so far ;-)
+                        </Typography>
+                        <Button variant="raised" component="span"
+                                onClick={() => updateFile(product.id, this.state.form)}>
+                            Update
+                        </Button>
+                    </Grid>
+                </Grid>
+            </ListItem>
+            <Divider/>
+        </div>)
+}
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        updateFile: (fileId, name) => dispatch(updateFile(fileId, name)),
+        updateFile: (fileId, form) => dispatch(updateFile(fileId, form)),
     }
 }
 

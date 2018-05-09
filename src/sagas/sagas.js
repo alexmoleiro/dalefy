@@ -42,7 +42,7 @@ export function* sendFileToGoogleDrive(action) {
 function* updateFileGoogleDrive(action) {
     try {
         yield put({type: "UPDATING_FILE_REQUEST"});
-        yield call(updateFileDrive, action.fileId,action.name);
+        yield call(updateFileDrive, action.fileId, action.form);
         yield put({type: "UPDATING_FILE_SUCCESS"});
     }
     catch (ex) {
