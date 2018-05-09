@@ -1,21 +1,12 @@
 import React, {Component} from 'react';
-import {withStyles} from 'material-ui/styles';
-import Typography from 'material-ui/Typography';
 import Button from 'material-ui/Button';
 import Divider from 'material-ui/Divider';
 import Grid from 'material-ui/Grid';
 import TextField from 'material-ui/TextField';
 import {connect} from 'react-redux';
 import {updateFile} from './../actions/googleDriveActions';
-import List, {ListItem, ListItemIcon, ListItemText} from 'material-ui/List';
+import List, {ListItem} from 'material-ui/List';
 
-/*const styles = theme => ({
-    root: {
-        width: '100%',
-        maxWidth: 360,
-        backgroundColor: theme.palette.background.paper,
-    },
-});*/
 class ProductLine extends Component {
 
     constructor(props) {
@@ -24,7 +15,8 @@ class ProductLine extends Component {
             form: {
                 name: props.product.name,
                 description: props.product.description,
-            }
+            },
+            showUpdateButton:false
         }
     }
 
@@ -32,12 +24,19 @@ class ProductLine extends Component {
         const {name, description} = this.state.form;
 
         if (field === "name") {
-            this.setState({form: {name: event.target.value, description}})
+            this.setState({form: {name: event.target.value, description},showUpdateButton:true})
         }
 
         if (field === "description") {
-            this.setState({form: {description: event.target.value, name}})
+            this.setState({form: {description: event.target.value, name}, showUpdateButton:true})
         }
+    }
+
+    sendAction(fileId) {
+        const {name, description} = this.state.form;
+        this.props.updateFile(fileId, this.state.form);
+        this.setState({form: {description, name}, showUpdateButton:false})
+
     }
 
     render() {
@@ -61,10 +60,10 @@ class ProductLine extends Component {
                                                onChange={(event) => this.handleChange(event, "description")}/>
                                 </ListItem>
                                 <ListItem >
-                                    <Button variant="raised" component="span"
-                                            onClick={() => updateFile(product.id, this.state.form)}>
+                                    { this.state.showUpdateButton && <Button variant="raised" component="span"
+                                            onClick={() => this.sendAction(product.id)}>
                                         Update
-                                    </Button>
+                                    </Button> }
                                 </ListItem>
                             </List>
                         </Grid>
