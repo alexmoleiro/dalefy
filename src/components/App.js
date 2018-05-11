@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import ProductLine from './../components/ProductLine';
 import Header from './../components/Header';
+import TabsNav from './../components/TabsNav';
 import {googleAuthEvent, logout} from './../actions/productActions';
 import {getFiles} from './../actions/googleDriveActions';
 import {conf} from './../helpers/googleapi/gapi_conf';
@@ -34,11 +35,13 @@ class App extends Component {
     }
 
     render() {
+
+
         this.props.isAuthenticated && this.props.products.isFirstLoad == true && this.props.getFiles()
         return (
             <div className="App">
-                <Header isAuthenticated={this.props.isAuthenticated} logoutAction={() => this.props.logout()}
-                        signin={() => gapi.auth2.getAuthInstance().signIn()}/>
+                <Header isAuthenticated={this.props.isAuthenticated} logoutAction={() => this.props.logout()} signin={() => gapi.auth2.getAuthInstance().signIn()}/>
+                {this.props.isAuthenticated && <TabsNav/>}
                 <div className="container">
                     {this.props.isAuthenticated &&
                     this.props.products.list.map(x => <ProductLine key={x.id} product={x}/>) }
