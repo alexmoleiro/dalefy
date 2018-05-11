@@ -1,11 +1,13 @@
-import {listFiles, uploadMultipart, getBase64, updateFileDrive} from './../helpers/googleapi/googledrive';
+import {listFiles, uploadMultipart, getBase64, updateFileDrive, shareFileDriveWithAnyone} from './../helpers/googleapi/googledrive';
 import {
     getFilesAction,
     logoutAction,
     getFiles,
     getFilesDriveSuccess,
-    updateFileAction
+    updateFileAction,
+    shareFileWithAnyoneAction
 } from './../actions/googleDriveActions';
+
 import {put, call, takeEvery} from 'redux-saga/effects'
 
 const gapi = require("./../helpers/googleapi/gapi");
@@ -51,9 +53,20 @@ function* updateFileGoogleDrive(action) {
 
 }
 
+function* shareFileWithAnyoneSaga(action) {
+  try {
+      yield put({type: "SHARING_REQUEST"});
+      yield call(shareFileDriveWithAnyone, action.fileId);
+      yield put({type: "SHARING_SUCCESS"});
+  }catch (ex) {
+      yield put({type: "SHARING_ERROR", message: ex.message});
+  }
+}
+
 export function* watchGoogle() {
-    yield takeEvery(getFilesAction, getGoogleDriveFiles)
+    yield takeEvery(getFilesAction, getGoogleDriveFiles)ñ
     yield takeEvery(logoutAction, logout);
     yield takeEvery('SEND_FILE', sendFileToGoogleDrive);
     yield takeEvery(updateFileAction, updateFileGoogleDrive);
+    yield takeEvery(shareFileWithAnyoneAction, shareFileWithAnyoneSaga);
 }

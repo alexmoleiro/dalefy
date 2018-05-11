@@ -4,7 +4,7 @@ import Divider from 'material-ui/Divider';
 import Grid from 'material-ui/Grid';
 import TextField from 'material-ui/TextField';
 import {connect} from 'react-redux';
-import {updateFile} from './../actions/googleDriveActions';
+import {updateFile, shareFileWithAnyone} from './../actions/googleDriveActions';
 import List, {ListItem} from 'material-ui/List';
 
 class ProductLine extends Component {
@@ -40,7 +40,7 @@ class ProductLine extends Component {
     }
 
     render() {
-        const {product, updateFile} = this.props;
+        const {product, shareFileWithAnyone} = this.props;
 
         return (
             <div>
@@ -59,11 +59,13 @@ class ProductLine extends Component {
                                     <TextField label="Description" multiline rowsMax="4" fullWidth value={this.state.form.description}
                                                onChange={(event) => this.handleChange(event, "description")}/>
                                 </ListItem>
-                                <ListItem >
+                                <ListItem > <Button variant="raised" color="primary" onClick={()=>shareFileWithAnyone(product.id)} >Share</Button>
+
                                     { this.state.showUpdateButton && <Button variant="raised" component="span"
                                             onClick={() => this.sendAction(product.id)}>
                                         Update
                                     </Button> }
+
                                 </ListItem>
                             </List>
                         </Grid>
@@ -78,6 +80,8 @@ class ProductLine extends Component {
 const mapDispatchToProps = (dispatch) => {
     return {
         updateFile: (fileId, form) => dispatch(updateFile(fileId, form)),
+        shareFileWithAnyone: (fileId) => dispatch(shareFileWithAnyone(fileId))
+
     }
 }
 

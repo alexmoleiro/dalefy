@@ -3,8 +3,10 @@ const gapi = require("./gapi");
 export const listFiles = () => {
     let res = gapi.client.drive.files.list({
         'pageSize': 10,
-        'q': "trashed=false",
-        'fields': "nextPageToken, files (id, description, name, thumbnailLink, webContentLink, mimeType, trashed, modifiedTime)"
+        'q': 'trashed =false',
+        'space':"appDataFolder",
+        // 'fields': "nextPageToken, files (id, description, name, thumbnailLink, webContentLink, mimeType, trashed, modifiedTime)"
+        'fields': "nextPageToken, files (*)"
     }).then(function (response) {
         if (!response.status === 200) {
             throw new Error("Are you logged in?")
@@ -67,6 +69,25 @@ export const updateFileDrive = (fileId, form) => {
             'body': {
                 title: form.name,
                 description: form.description,
+            }
+        });
+        request.execute(function (arg) {
+            resolve(arg);
+        });
+    });
+};
+
+// POST https://www.googleapis.com/drive/v2/files/fileId/permissions
+
+export const shareFileDriveWithAnyone = (fileId) => {
+    return new Promise((resolve, reject) => {
+        const request = gapi.client.request({
+            'path': '/drive/v3/files/'+fileId+'/permissions',
+            'method': 'POST',
+            'body': {
+                role: "reader",
+                type: "anyone",
+                allowFileDiscovery:true
             }
         });
         request.execute(function (arg) {
