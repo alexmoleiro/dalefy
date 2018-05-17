@@ -4,7 +4,7 @@ pipeline {
     stage('Build') {
       steps {
         git(poll: true, changelog: true, url: 'https://github.com/alexmoleiro/dalefy', branch: 'master')
-        sh 'ls -la'
+        sh 'npm start build'
       }
     }
   }
