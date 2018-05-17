@@ -8,6 +8,11 @@ pipeline {
 npm start build'''
       }
     }
+    stage('Archive') {
+      steps {
+        archiveArtifacts 'JsBuild'
+      }
+    }
   }
   environment {
     environment = 'test'
